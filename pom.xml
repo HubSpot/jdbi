@@ -282,10 +282,10 @@
                     <configuration>
                         <header>${project.basedir}/src/build/LICENSE-HEADER.txt</header>
                         <excludes combine.children="append">
+                            <exclude>**/pom.xml</exclude>
                             <exclude>**/*.stg</exclude>
                             <exclude>**/*.txt</exclude>
                             <exclude>.blazar.yaml</exclude>
-                            <exclude>pom.xml</exclude>
                         </excludes>
                     </configuration>
                 </plugin>
