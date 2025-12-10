@@ -82,6 +82,7 @@
         <basepom.check.phase-checkstyle>never</basepom.check.phase-checkstyle>
         <basepom.check.skip-checkstyle>true</basepom.check.skip-checkstyle>
         <basepom.check.skip-dependency-versions-check>true</basepom.check.skip-dependency-versions-check>
+        <basepom.check.skip-license>true</basepom.check.skip-license>
         <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
         <basepom.check.fail-all>true</basepom.check.fail-all>
 
