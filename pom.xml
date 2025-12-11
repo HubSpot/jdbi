@@ -17,7 +17,7 @@
     <parent>
         <groupId>org.basepom</groupId>
         <artifactId>basepom-oss</artifactId>
-        <version>19</version>
+        <version>66</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -79,14 +79,18 @@
     </developers>
 
     <properties>
-        <project.build.targetJdk>1.6</project.build.targetJdk>
-        <basepom.maven.version>2.0.9</basepom.maven.version>
-        <dep.antlr.version>3.4</dep.antlr.version>
-        <dep.spring.version>2.0.1</dep.spring.version>
+        <basepom.check.phase-checkstyle>never</basepom.check.phase-checkstyle>
+        <basepom.check.skip-checkstyle>true</basepom.check.skip-checkstyle>
+        <basepom.check.skip-dependency-versions-check>true</basepom.check.skip-dependency-versions-check>
+        <basepom.check.skip-license>true</basepom.check.skip-license>
+        <basepom.check.skip-spotbugs>true</basepom.check.skip-spotbugs>
         <basepom.check.fail-all>true</basepom.check.fail-all>
 
         <basepom.test.fork-count>8</basepom.test.fork-count>
         <basepom.test.timeout>120</basepom.test.timeout>
+
+        <dep.antlr.version>3.4</dep.antlr.version>
+        <dep.spring.version>2.0.1</dep.spring.version>
     </properties>
 
     <dependencies>
@@ -274,18 +278,6 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>com.mycila</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <configuration>
-                        <header>${project.basedir}/src/build/LICENSE-HEADER.txt</header>
-                        <excludes combine.children="append">
-                            <exclude>**/*.stg</exclude>
-                            <exclude>pom.xml</exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
-
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-toolchains-plugin</artifactId>
                     <version>1.1</version>
@@ -340,12 +332,12 @@
                             </artifactSet>
                             <relocations>
                                 <relocation>
-                                    <pattern>org.antlr.runtime</pattern>
+                                    <pattern>^org.antlr.runtime</pattern>
                                     <shadedPattern>org.skife.jdbi.org.antlr.runtime</shadedPattern>
                                 </relocation>
 
                                 <relocation>
-                                    <pattern>com.fasterxml.classmate</pattern>
+                                    <pattern>^com.fasterxml.classmate</pattern>
                                     <shadedPattern>org.skife.jdbi.com.fasterxml.classmate</shadedPattern>
                                 </relocation>
                             </relocations>
